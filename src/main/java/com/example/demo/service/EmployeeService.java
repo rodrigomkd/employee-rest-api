@@ -85,12 +85,6 @@ public class EmployeeService
 	public Employee retrieveEmployeeById(Integer employeeId) {
 		logger.info("Entering retrieveEmployeeById() for Id:" + employeeId);
 		Employee employee = getEmployee(employeeId);
-		/*
-		Optional<Employee> employee = employeeRepository.findById(employeeId);
-		if (! employee.isPresent()) {
-			//throw new EngagementsNotFoundException("There are no Engagements related to this email:" + bpEmail);
-		}
-		*/
 		logger.info("Exiting retrieveEmployeeById() for employeeId: " + employeeId);
 		
 		return employee;
@@ -103,17 +97,10 @@ public class EmployeeService
 	 * @return Employee The object saved
 	 */
 	public Employee saveEmployee(Employee employee) {
-		//try {
-			logger.info("Entering saveEmployee() for employee: " + employee);
-			employee = employeeRepository.save(employee);
-			// (! employee.isPresent()) {
-				//throw new EngagementsNotFoundException("There are no Engagements related to this email:" + bpEmail);
-			//}
-			logger.info("Exiting saveEmployee() for employee: " + employee);
-		//} catch(ConstraintViolationException e) {
-			//System.out.print("mkd, " + e.getMessage());
-			//throw new IllegalArgumentException("bad request");
-		//}
+		logger.info("Entering saveEmployee() for employee: " + employee);
+		employee = employeeRepository.save(employee);
+		logger.info("Exiting saveEmployee() for employee: " + employee);
+
 		return employee;
 	}
 	
@@ -169,43 +156,16 @@ public class EmployeeService
 		Employee employee = getEmployee(employeeId);
 		employee.setStatus(false);
 		employeeRepository.save(employee);
-		/*
-		if (employeeRepository.existsById(employeeId)) {
-			employeeRepository.delete(employee);
-		} else {
-			throw new EmployeeNotFoundException("The Employee with id:" + employeeId + ", was not found");
-		}
-			*/
+
 		logger.info("Exiting deleteEmployee() for employeeId:" + employeeId);
 		return employeeId;
 	}
 	
-	/*
-	public String getJWTToken(String username) {
-		String secretKey = "mySecretKey";
-		List<String> grantedAuthorities = AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER");
-		
-		String token = Jwts
-				.builder()
-				.setId("softtekJWT")
-				.setSubject(username)
-				.claim("authorities",
-						grantedAuthorities.stream()
-								.map(GrantedAuthority::getAuthority)
-								.collect(Collectors.toList()))
-				.setIssuedAt(new Date(System.currentTimeMillis()))
-				.setExpiration(new Date(System.currentTimeMillis() + 600000))
-				.signWith(SignatureAlgorithm.HS512,
-						secretKey.getBytes()).compact();
-
-		return "Kenzan " + token;
-	}
-	 */
 	/**
-	 * * *NOTE*: Only for internal purposes
+	 * Get Employee by ID
 	 * 
-	 * @param id
-	 * @return
+	 * @param id Employee ID
+	 * @return Employe
 	 */
 	private Employee getEmployee(Integer employeeId) {
 		logger.info("Entering getEmployee() for employeeId:" + employeeId);

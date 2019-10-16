@@ -9,14 +9,12 @@ import org.springframework.stereotype.Component;
 
 import com.example.demo.controller.EmployeeController;
 import com.example.demo.model.Employee;
-import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
  * @author <a href="mailto:rodrigo.moncada@ibm.com">Rodrigo Moncada</a>
  *
  */
 @Component
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class EmployeeResourceAssembler implements ResourceAssembler<Employee, Resource<Employee>> {
 
 	/*

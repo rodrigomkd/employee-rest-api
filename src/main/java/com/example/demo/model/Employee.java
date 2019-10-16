@@ -27,7 +27,6 @@ public class Employee {
 	
 	@Id
 	@Column
-	//@NotNull
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_native")
 	@GenericGenerator(name = "id_native", strategy = "native")
 	private Integer id;
@@ -47,24 +46,14 @@ public class Employee {
 	@NotEmpty(message = "Please provide a last name")
     private String lastName;
 	
-	//@Column(name="date_birth")
 	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 	@Column
 	@Past
-	//@NotNull
 	@Adult(message = "must be a higher 18 years old")
-	//@Pattern(regexp="^\\d{4}([\\-/.])(0?[1-9]|1[1-2])\\1(3[01]|[12][0-9]|0?[1-9])$", 
-	//	message="Please add a date valid format: yyyy-mm-dd")
-	//@NotEmpty(message = "Please provide a date of birth")
-	//@NotEmpty(message = "Please provide a birthday")
     private LocalDate dateOfBirth;
 	
-	//@Column(name="date_employment")
 	@Column
-	//@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 	@PastOrPresent
-	//@Pattern(regexp="^\\d{4}([\\-/.])(0?[1-9]|1[1-2])\\1(3[01]|[12][0-9]|0?[1-9])$", 
-	//	message="Please add a date valid format: yyyy-mm-dd")
     private LocalDate dateOfEmployment;
 	
 	@Column

@@ -8,6 +8,10 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.Employee;
 
+/**
+ * @author <a href="mailto:rodrigo.moncada@live.com">Rodrigo Moncada</a>
+ *
+ */
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Integer>
 {

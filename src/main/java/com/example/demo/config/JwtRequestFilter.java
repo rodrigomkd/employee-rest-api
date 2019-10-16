@@ -24,7 +24,6 @@ import io.jsonwebtoken.UnsupportedJwtException;
  * @author <a href="mailto:rodrigo.moncada@live.com">Rodrigo Moncada</a>
  *
  */
-//@Configuration
 public class JwtRequestFilter extends OncePerRequestFilter {
 
 	private static final String HEADER = "Authorization";
