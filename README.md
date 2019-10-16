@@ -47,11 +47,16 @@ As part of the building process some patterns and design choices where made and 
 
 ## Usage
 
+### Cloud Service
+Currently, the REST API is already deployed on Cloud using `Cloud Foundry` service by IBM, open the link below to see the REST API documentation:
+
+[https://employee-rest-api.us-south.cf.appdomain.cloud/swagger-ui.html#](https://employee-rest-api.us-south.cf.appdomain.cloud/swagger-ui.html#)
+
 ### Clone the Repository
 
 Run the following command: 
 
-git clone https://github.com/rodrigomkd/employee-rest-api.git
+git clone [https://github.com/rodrigomkd/employee-rest-api.git](https://github.com/rodrigomkd/employee-rest-api.git)
 
 ### Add properties values
 
@@ -86,7 +91,7 @@ To run the application simply run the `mvnw spring-boot:run` command on the comm
 
 ### Interacting with the API
 
-Once the application has successfully started the API should be at http://localhost:8080/swagger-ui.html to see the REST API documentation.
+Once the application has successfully started the API should be at [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html) to see the REST API documentation.
 
 From there all REST methods are exposed at [/api/v1/employees](http://localhost:8080/api/v1/employees)
 
